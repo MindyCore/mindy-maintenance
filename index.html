@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mindy – Under Maintenance</title>
+  <meta name="description" content="Mindy is currently undergoing scheduled maintenance. We'll be back shortly." />
+  <!-- Prevent search engines from indexing the maintenance page -->
+  <meta name="robots" content="noindex, nofollow" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #1a1a2e;
+      color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Top header (matches the pink/purple gradient) ── */
+    header {
+      background: linear-gradient(90deg, #a855f7 0%, #ec4899 100%);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .header-avatar {
+      width: 42px;
+      height: 42px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .header-title h1 {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .header-title p {
+      font-size: 12px;
+      opacity: 0.85;
+    }
+
+    /* ── Main content ── */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .card {
+      background: #16213e;
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 20px;
+      padding: 56px 48px;
+      text-align: center;
+      max-width: 520px;
+      width: 100%;
+      box-shadow: 0 8px 40px rgba(168, 85, 247, 0.15);
+    }
+
+    .robot-icon {
+      width: 90px;
+      height: 90px;
+      background: linear-gradient(135deg, #a855f7, #ec4899);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 44px;
+      margin: 0 auto 28px;
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.4); }
+      50%       { box-shadow: 0 0 0 20px rgba(168, 85, 247, 0); }
+    }
+
+    .card h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      background: linear-gradient(90deg, #a855f7, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .card p {
+      font-size: 15px;
+      color: #a0aec0;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    /* ── Progress bar ── */
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #718096;
+      margin-bottom: 8px;
+    }
+
+    .progress-track {
+      background: #2d3748;
+      border-radius: 99px;
+      height: 8px;
+      overflow: hidden;
+      margin-bottom: 36px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, #a855f7, #ec4899);
+      width: 65%;
+      animation: progress 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes progress {
+      from { width: 55%; }
+      to   { width: 75%; }
+    }
+
+    /* ── Status dots ── */
+    .status-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-align: left;
+      margin-bottom: 36px;
+    }
+
+    .status-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: #a0aec0;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot.green  { background: #48bb78; box-shadow: 0 0 6px #48bb78; }
+    .dot.orange { background: #ed8936; box-shadow: 0 0 6px #ed8936; animation: blink 1.2s ease-in-out infinite; }
+    .dot.grey   { background: #4a5568; }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    /* ── Footer note ── */
+    .eta {
+      font-size: 13px;
+      color: #718096;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .eta span {
+      color: #a855f7;
+      font-weight: 600;
+    }
+
+    /* ── Bottom footer ── */
+    footer {
+      text-align: center;
+      padding: 16px;
+      font-size: 12px;
+      color: #4a5568;
+    }
+
+    footer a {
+      color: #a855f7;
+      text-decoration: none;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 560px) {
+      .card {
+        padding: 40px 24px;
+      }
+      .card h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-avatar">🤖</div>
+    <div class="header-title">
+      <h1>Mindy</h1>
+      <p>Always here for you 💜</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="card">
+      <div class="robot-icon">🤖</div>
+
+      <h2>We'll be right back!</h2>
+
+      <p>
+        Mindy is currently undergoing scheduled maintenance to bring you
+        a better experience. We appreciate your patience and will be
+        back online shortly.
+      </p>
+
+      <div class="progress-label">
+        <span>Maintenance in progress…</span>
+        <span>~65%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill"></div>
+      </div>
+
+      <div class="status-list">
+        <div class="status-item">
+          <div class="dot green"></div>
+          <span>Database — Online</span>
+        </div>
+        <div class="status-item">
+          <div class="dot orange"></div>
+          <span>API Services — Updating</span>
+        </div>
+        <div class="status-item">
+          <div class="dot grey"></div>
+          <span>Chat Interface — Pending restart</span>
+        </div>
+      </div>
+
+      <div class="eta">
+        Estimated completion: <span>within 30 minutes</span>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 <a href="https://mindycore.com" target="_blank">MindyCore</a> — All rights reserved
+  </footer>
+
+</body>
+</html>
